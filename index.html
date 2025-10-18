@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portabilidad a Movistar | Conserva tu número</title>
+    <link href="assets/favicon.ico" rel="shortcut icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --movistar-blue: #00A9E0;
+            --movistar-dark-blue: #005AA3;
+            --movistar-green: #5bb510;
+            --movistar-gray: #F5F5F5;
+            --movistar-dark: #333333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--movistar-dark);
+            line-height: 1.6;
+        }
+        
+        .bg-movistar-blue {
+            background-color: var(--movistar-blue);
+        }
+        
+        .bg-movistar-dark {
+            background-color: var(--movistar-dark-blue);
+        }
+        
+        .text-movistar-blue {
+            color: var(--movistar-blue);
+        }
+        
+        .text-movistar-green {
+            color: var(--movistar-green);
+        }
+        
+        .btn-movistar {
+            background-color: var(--movistar-blue);
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-movistar:hover {
+            background-color: var(--movistar-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 169, 224, 0.3);
+        }
+        
+        .btn-movistar-green {
+            background-color: var(--movistar-green);
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-movistar-green:hover {
+            background-color: var(--movistar-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 169, 224, 0.3);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--movistar-blue) 0%, var(--movistar-dark-blue) 100%);
+            color: white;
+            padding: 100px 0;
+            /*position: relative;*/
+            overflow: hidden;
+        }
+        
+        /*.hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://placehold.co/1200x600/00A9E0/FFFFFF?text=Movistar+Portabilidad') center/cover no-repeat;
+            opacity: 0.1;
+        }*/
+        
+        .benefit-card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--movistar-blue);
+            box-shadow: 0 0 0 0.2rem rgba(0, 169, 224, 0.25);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--movistar-blue);
+        }
+        
+        .testimonial-card {
+            background-color: var(--movistar-gray);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--movistar-blue);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .footer {
+            background-color: var(--movistar-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--movistar-blue);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-movistar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="assets/ico_Movistar_white.svg">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beneficios">Beneficios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como-funciona">Cómo cambiarme</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-movistar-green" href="#contacto">Solicitar info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-6 fw-bold mb-4">Cambiate a <span style="color:#69ce1c !important;">Movistar</span> conservando tu mismo número</h1>
+                    <p class="lead mb-4">Conserva tu número y disfruta de los mejores beneficios con Movistar Prepago. ¡Más gigas, más minutos, más por tu dinero!</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contacto" class="btn btn-light btn-lg px-4 py-2 fw-bold">Solicitar información</a>
+                        <a href="#beneficios" class="btn btn-outline-light btn-lg px-4 py-2">Ver beneficios</a>
+                        <a class="btn btn-movistar-green btn-lg px-4 py-2 fw-bold" href="https://api.whatsapp.com/send/?phone=529995122716&amp;text=Me+gustaria+cambiarme+a+Movistar&amp;type=phone_number&amp;app_absent=0"> Hazlo desde WhatsApp </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="assets/banner1.png" alt="Portabilidad Movistar" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title d-inline-block">Beneficios de Portarse a Movistar</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 bg-white">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-mobile-alt fa-3x text-movistar-blue"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Conserva tu número</h4>
+                        <p class="text-center">No pierdas tu número actual. Te ayudamos con todo el proceso de portabilidad sin complicaciones.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 bg-white">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-wifi fa-3x text-movistar-green"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Más gigas y minutos</h4>
+                        <p class="text-center">Disfruta de paquetes con más datos, minutos ilimitados y redes sociales gratis.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 bg-white">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-gift fa-3x text-movistar-blue"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Bonos de bienvenida</h4>
+                        <p class="text-center">Recibe bonos especiales por portarte a Movistar. Aprovecha nuestras promociones exclusivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="como-funciona" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title d-inline-block">¿Cómo funciona la Portabilidad?</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-start mb-4">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Solicita tu portabilidad</h4>
+                            <p>Completa el formulario con tus datos y el número que deseas portar.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Te llamaremos pronto</h4>
+                            <p>¡Atento a tu teléfono, pronto de contactaremos!</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Retira tu chip</h4>
+                            <p>Acércate a tu CAV más cercano.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <span class="step-number">4</span>
+                        <div>
+                            <h4>¡Disfruta de Movistar!</h4>
+                            <p>En 24-48 horas tu número estará activo con todos los beneficios de Movistar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://placehold.co/500x400/00A9E0/FFFFFF?text=Proceso+Portabilidad" alt="Proceso de Portabilidad" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!--<section id="testimonios" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title d-inline-block">Lo que dicen nuestros clientes</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://placehold.co/60x60/00A9E0/FFFFFF?text=U" alt="Usuario" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Ana García</h5>
+                                <small class="text-muted">De Telcel a Movistar</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"El proceso fue muy sencillo. En menos de 24 horas ya tenía mi número funcionando con Movistar y con muchos más gigas."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://placehold.co/60x60/005AA3/FFFFFF?text=U" alt="Usuario" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Carlos López</h5>
+                                <small class="text-muted">De AT&T a Movistar</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Excelente atención. Me ayudaron en todo el proceso y ahora pago menos por más beneficios. ¡Totalmente recomendado!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://placehold.co/60x60/84BD00/FFFFFF?text=U" alt="Usuario" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">María Rodríguez</h5>
+                                <small class="text-muted">De Unefón a Movistar</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"No podía creer lo fácil que fue. Conservé mi número y ahora tengo mejor cobertura y más datos para navegar."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Contact Form Section -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title d-inline-block">Solicita información sobre la Portabilidad</h2>
+                        <p class="lead">Completa el formulario y un asesor se pondrá en contacto contigo para ayudarte con el proceso.</p>
+                    </div>
+                    <div class="form-container">
+                        <form id="portability-form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="nombre_completo" class="form-control" placeholder="Nombre completo" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="tel" name="telefono" class="form-control" placeholder="Número actual (10 dígitos)" pattern="[0-9]{10}" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="operadora" required>
+                                        <option value="" disabled selected>Compañía actual</option>
+                                        <option value="Telcel">Telcel</option>
+                                        <option value="AT&T">AT&T</option>
+                                        <option value="Unefón">Unefón</option>
+                                        <option value="Bait">Bait</option>
+                                        <option value="Otra operadora">Otra</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    Acepto los <a href="#" class="text-movistar-blue">términos y condiciones</a> y la <a href="#" class="text-movistar-blue">política de privacidad</a>
+                                </label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-movistar btn-lg">Solicitar información</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title d-inline-block">Preguntas Frecuentes</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    ¿Puedo conservar mi número actual?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, el proceso de portabilidad numérica te permite conservar tu número actual al cambiarte a Movistar.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    ¿Cuánto tiempo toma el proceso?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El proceso de portabilidad generalmente se completa en 24 a 48 horas hábiles.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    ¿Hay algún costo por la portabilidad?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, el proceso de portabilidad es completamente gratuito.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">
+                        <img src="assets/ico_Movistar_white.svg" alt="Movistar Logo" style="height:40px;">
+                    </h4>
+                    <p>Te ayudamos a portar tu número a Movistar para que disfrutes de los mejores beneficios en telefonía móvil prepago.</p>
+                    <div class="mt-4">
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=61578259914610" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=529995122716&amp;text=Me+gustaria+cambiarme+a+Movistar&amp;type=phone_number&amp;app_absent=0" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <!--<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        -->
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#beneficios" class="text-light text-decoration-none">Beneficios</a></li>
+                        <li class="mb-2"><a href="#como-funciona" class="text-light text-decoration-none">Cómo funciona</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none">Solicitar info</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 999 5122716</li>
+                        <!--<li class="mb-2"><i class="fas fa-envelope me-2"></i> info@portabilidad.mx</li>-->
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Ciudad de México</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://www.movistar.com.mx/atencion-al-cliente" class="text-light text-decoration-none">Atenci&oacute;n al cliente</a></li>
+                        <li class="mb-2"><a target="_blank" href="https://www.movistar.com.mx/centro-de-privacidad/centro-de-proteccion-de-datos/aviso-de-privacidad" class="text-light text-decoration-none">Aviso de privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Movistar Portabilidad. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Un proyecto de <a href="https://portabilidad.mx.oceanocc.com" class="text-light text-decoration-none">OceanoCC</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top - 70
+                }, 500);
+            });
+            
+            // Form submission
+            $('#portability-form').on('submit', function(e) {
+                e.preventDefault();
+
+                const nombre = $('input[name="nombre_completo"]').val();
+                const telefono = $('input[name="telefono"]').val();
+                const operadora = $('select[name="operadora"]').val();
+
+                const mensaje = encodeURIComponent(`Hola, soy ${nombre} y me gustaría cambiarme a Movistar conservando mi número ${telefono}. Mi operadora actual es ${operadora}.`);
+                const whatsappUrl = `https://wa.me/529995122716?text=${mensaje}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Navbar background on scroll
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('bg-movistar-dark');
+                } else {
+                    $('.navbar').removeClass('bg-movistar-dark');
+                }
+            });
+        });
+        
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+</html>
