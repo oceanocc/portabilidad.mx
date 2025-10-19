@@ -59,7 +59,7 @@ $(function()
             nombre_completo: nombre_completo,
             telefono: telefono,
             operadora: operadora,
-            servicio: 'movistar-porta-mexico-prepago'
+            servicio: 'Movistar Prepago'
         };
         
         const submitBtn = $(this).find('button[type="submit"]');
